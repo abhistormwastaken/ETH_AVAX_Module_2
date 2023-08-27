@@ -12,7 +12,7 @@ The AbhishekApp is developed utilizing the Hardhat framework and React library. 
 To download the project, you can clone the repository using the following command:
 
 ```
-git clone https://https://github.com/abhistormwastaken/ETH_AVAX_Module_2
+git clone https://github.com/abhistormwastaken/ETH_AVAX_Module_2
 ```
 
 After cloning the repository, navigate to the project's root directory.
