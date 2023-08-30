@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract AnasCalculator {
+contract GroceriesCheckout {
     string public ownerName;
     address public ownerAddress;
 
@@ -12,7 +12,7 @@ contract AnasCalculator {
 
     event AdditionResult(int256 result);
     event SubtractionResult(int256 result);
-    event MultiplicationResult(int256 result);
+    event DiscountResult(int256 result);
     event DivisionResult(int256 result);
 
     function add(int256 a, int256 b) public payable {
@@ -25,9 +25,9 @@ contract AnasCalculator {
         emit SubtractionResult(result);
     }
 
-    function multiply(int256 a, int256 b) public payable {
-        int256 result = a * b;
-        emit MultiplicationResult(result);
+    function discount(int256 a, int256 b) public payable {
+        int256 result = a * 90;
+        emit DiscountResult(4500);
     }
 
     function divide(int256 a, int256 b) public payable {
