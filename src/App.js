@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import "./App.css";
 
-import CalculatorJSON from "./contracts/AnasCalculator.sol/AnasCalculator.json";
+import CalculatorJSON from "./contracts/GroceriesCheckout.sol/GroceriesCheckout.json";
 const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const CalculatorABI = CalculatorJSON.abi;
 
@@ -107,12 +107,12 @@ function App() {
     }
   };
 
-  const handleMultiply = async () => {
+  const handleDiscount = async () => {
     try {
       if (contract && window.ethereum) {
         await window.ethereum.request({ method: "eth_requestAccounts" });
 
-        const resultTx = await contract.multiply(num1, num2, {
+        const resultTx = await contract.multiply(45, 100, {
           value: ethers.utils.parseEther("1"),
         });
 
@@ -162,6 +162,8 @@ function App() {
     }
   };
 
+  
+
   useEffect(() => {
     connectToMetaMask();
   }, []);
@@ -201,6 +203,9 @@ function App() {
             </button>
             <button className="operation-button" onClick={handleDivide}>
               Quantity you can buy
+            </button>
+            <button className="operation-button" onClick={handleDiscount}>
+              Apply Discount (10%)
             </button>
           </div>
           <p className="result">Value now is: {result}</p>
