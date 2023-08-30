@@ -1,9 +1,13 @@
 # ETH_AVAX_Module_2
-This project represents a decentralized application that interfaces with the AbhishekApp smart contract. The DApp offers functionalities for viewing the owner's name and balance, along with the capability to transfer ethers to the contract owner.
+This project represents a decentralized application that interfaces with the GroceriesCheckout smart contract. The DApp offers functionalities for viewing the owner's name and balance, along with the capability to transfer ethers to the contract owner.
+
+## Explainatory video
+
+https://www.loom.com/share/d64e683936ae4db0aa818910d7182bd5?sid=5ef3e5f4-89e2-44b2-88cc-51427254c1d3
 
 ## Overview
 
-The AbhishekApp is developed utilizing the Hardhat framework and React library. It comprises a Solidity-based smart contract and a React frontend that delivers a user-friendly interface for interacting with the contract. The smart contract encompasses the logic for fetching the owner's name and balance, as well as enabling ether transfers to the owner. Meanwhile, the React frontend showcases the owner's details and furnishes a form to initiate transfers.
+The GroceriesCheckout is developed utilizing the Hardhat framework and React library. It comprises a Solidity-based smart contract and a React frontend that delivers a user-friendly interface for interacting with the contract. The smart contract encompasses the logic for fetching the owner's name and balance, as well as enabling ether transfers to the owner. Meanwhile, the React frontend showcases the owner's details and furnishes a form to initiate transfers.
 
 ## Getting Started
 
