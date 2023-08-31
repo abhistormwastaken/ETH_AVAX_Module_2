@@ -3,7 +3,7 @@ This project represents a decentralized application that interfaces with the Gro
 
 ## Explainatory video
 
-https://www.loom.com/share/d64e683936ae4db0aa818910d7182bd5?sid=5ef3e5f4-89e2-44b2-88cc-51427254c1d3
+https://www.loom.com/share/84d96225461748f69c3ff255d5e17515?sid=e20541a9-ddd8-4366-9285-5e36108d1ae2
 
 ## Overview
 
