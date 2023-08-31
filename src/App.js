@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import "./App.css";
 
-import CalculatorJSON from "./contracts/GroceriesCheckout.sol/GroceriesCheckout.json";
+import CalculatorJSON from "./contracts/GroceriesCart.sol/GroceriesCart.json";
 const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const CalculatorABI = CalculatorJSON.abi;
 
 function App() {
   const [result, setResult] = useState("");
-  const [num1, setNum1] = useState("");
-  const [num2, setNum2] = useState("");
+  const [CartValue, setCartValue] = useState("");
+  const [ItemPrice, setItemPrice] = useState("");
   const [isConnected, setIsConnected] = useState(false);
   const [account, setAccount] = useState("");
   const [contract, setContract] = useState("");
@@ -56,7 +56,7 @@ function App() {
       if (contract && window.ethereum) {
         await window.ethereum.request({ method: "eth_requestAccounts" });
 
-        const resultTx = await contract.add(num1, num2, {
+        const resultTx = await contract.add(CartValue, ItemPrice, {
           value: ethers.utils.parseEther("1"),
         });
 
@@ -84,7 +84,7 @@ function App() {
       if (contract && window.ethereum) {
         await window.ethereum.request({ method: "eth_requestAccounts" });
 
-        const resultTx = await contract.subtract(num1, num2, {
+        const resultTx = await contract.subtract(CartValue, ItemPrice, {
           value: ethers.utils.parseEther("1"),
         });
 
@@ -112,7 +112,7 @@ function App() {
       if (contract && window.ethereum) {
         await window.ethereum.request({ method: "eth_requestAccounts" });
 
-        const resultTx = await contract.multiply(45, 100, {
+        const resultTx = await contract.multiply(CartValue, ItemPrice, {
           value: ethers.utils.parseEther("1"),
         });
 
@@ -134,12 +134,12 @@ function App() {
       setResult("Transaction failed");
     }
   };
-  const handleDivide = async () => {
+  const handleQuantity = async () => {
     try {
       if (contract && window.ethereum) {
         await window.ethereum.request({ method: "eth_requestAccounts" });
 
-        const resultTx = await contract.divide(num1, num2, {
+        const resultTx = await contract.divide(CartValue, ItemPrice, {
           value: ethers.utils.parseEther("1"),
         });
 
@@ -161,8 +161,6 @@ function App() {
       setResult("Transaction failed");
     }
   };
-
-  
 
   useEffect(() => {
     connectToMetaMask();
@@ -171,7 +169,7 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1>AVAX Web 3.0 App</h1>
+        <h1>Groceries Cart/Checkout</h1>
       </header>
       {isConnected ? (
         <div className="calculator">
@@ -181,28 +179,28 @@ function App() {
             <p>Made by: Abhishek Khanna</p>
           </div>
           <div className="calculator-inputs">
-            <label>Groceries Balance:</label>
+            <label>Groceries Cart Value:</label>
             <input
               type="number"
-              value={num1}
-              onChange={(e) => setNum1(e.target.value)}
+              value={CartValue}
+              onChange={(e) => setCartValue(e.target.value)}
             />
             <label>Groceries Price:</label>
             <input
               type="number"
-              value={num2}
-              onChange={(e) => setNum2(e.target.value)}
+              value={ItemPrice}
+              onChange={(e) => setItemPrice(e.target.value)}
             />
           </div>
           <div className="calculator-buttons">
             <button className="operation-button" onClick={handleAdd}>
-              Sell Groceries
+              Add item to cart
             </button>
             <button className="operation-button" onClick={handleSubtract}>
-              Buy Groceries
+              Remove item from cart
             </button>
-            <button className="operation-button" onClick={handleDivide}>
-              Quantity you can buy
+            <button className="operation-button" onClick={handleQuantity}>
+              Number of items in cart
             </button>
             <button className="operation-button" onClick={handleDiscount}>
               Apply Discount (10%)
